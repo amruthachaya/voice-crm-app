@@ -3,14 +3,29 @@ venv/
 __pycache__/
 *.pyc
 .env
+db.sqlite3
 
-# Node
+# Node / Frontend
 node_modules/
 dist/
 
-# OS
-db.sqlite3
+# Android / Bubblewrap
+android.keystore
+*.apk
+*.aab
+*.idsig
+frontend/app/
+frontend/.gradle/
+frontend/build/
+twa-manifest.json
+store_icon.png
+
+# Netlify
+.netlify/
+
+# Reports
+*.xlsx
+
+# OS / IDE
 .idea/
 .DS_Store
-*.venv.*
-*.xlsx
