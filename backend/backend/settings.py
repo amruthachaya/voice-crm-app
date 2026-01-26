@@ -46,7 +46,6 @@ INSTALLED_APPS = [
 
 ]
 
-INSTALLED_APPS += ["corsheaders"]
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
