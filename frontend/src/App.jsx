@@ -31,7 +31,7 @@ function App() {
   };
 
   const sendToBackend = async () => {
-    const res = await fetch("http://127.0.0.1:8000/api/extract/", {
+    const res = await fetch("https://voice-crm-app-production.up.railway.app/api/extract/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ transcript }),
@@ -41,7 +41,7 @@ function App() {
   };
 
   const loadEvals = async () => {
-    const res = await fetch("http://127.0.0.1:8000/api/evals/");
+    const res = await fetch("https://voice-crm-app-production.up.railway.app/api/evals/");
     const data = await res.json();
     setEvals(data);
   };
