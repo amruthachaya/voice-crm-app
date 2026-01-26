@@ -40,12 +40,22 @@ def normalize_numbers(text: str) -> str:
     return "".join(result)
 
 
-def extract_phone(text: str) -> str | None:
-    normalized = normalize_numbers(text)
+def extract_phone(transcript):
+    if not transcript:
+        return None
 
-    match = re.search(r"\b\d{10}\b", normalized)
-    if match:
-        return match.group()
+    # find all continuous digit sequences
+    matches = re.findall(r'\d{10,}', transcript)
+
+    if matches:
+        # take last 10 digits of the last match
+        return matches[-1][-10:]
+
+    # fallback: collect digits and take last 10
+    digits = [ch for ch in transcript if ch.isdigit()]
+    if len(digits) >= 10:
+        return "".join(digits[-10:])
+
     return None
 
 
