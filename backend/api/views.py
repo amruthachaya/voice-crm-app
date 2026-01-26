@@ -25,6 +25,7 @@ class EvaluationAPIView(APIView):
     def get(self, request):
         try:
             df = evaluate_extraction()
+            df =df.fillna("")
             return Response(df.to_dict(orient="records"), status=status.HTTP_200_OK)
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
