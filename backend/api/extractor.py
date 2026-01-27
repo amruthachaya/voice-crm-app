@@ -63,7 +63,9 @@ def extract_name(text: str) -> str | None:
     patterns = [
         r"customer ([A-Z][a-z]+ [A-Z][a-z]+)",
         r"with ([A-Z][a-z]+ [A-Z][a-z]+)",
-        r"spoke with ([A-Z][a-z]+ [A-Z][a-z]+)"
+        r"spoke with ([A-Z][a-z]+ [A-Z][a-z]+)",
+        r"my name is ([A-Z][a-z]+)",
+        r"name is ([A-Z][a-z]+)"
     ]
 
     for pattern in patterns:
