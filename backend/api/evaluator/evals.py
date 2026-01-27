@@ -22,8 +22,10 @@ def evaluate_extraction():
         }
 
         rows.append(row)
+    df = pd.DataFrame(rows)
 
-    return pd.DataFrame(rows)
+    df = df.where(pd.notnull(df), None)
+    return df
 
 def generate_excel_report(file_path="evaluation_results.xlsx"):
     df = evaluate_extraction()

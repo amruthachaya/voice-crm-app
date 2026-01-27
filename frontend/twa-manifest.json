@@ -1,5 +1,5 @@
 {
-  "packageId": "com.amruthachaya.voicecrm",
+  "packageId": "app.netlify.voice_crm_logger.twa",
   "host": "voice-crm-logger.netlify.app",
   "name": "Voice CRM Logger",
   "launcherName": "VoiceCRM",

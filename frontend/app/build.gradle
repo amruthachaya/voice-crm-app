@@ -21,7 +21,7 @@ plugins {
 }
 
 def twaManifest = [
-    applicationId: 'com.amruthachaya.voicecrm',
+    applicationId: 'app.netlify.voice_crm_logger.twa',
     hostName: 'voice-crm-logger.netlify.app', // The domain being opened in the TWA.
     launchUrl: '/', // The start path for the TWA. Must be relative to the domain.
     name: 'Voice CRM Logger', // The application name.
@@ -52,9 +52,9 @@ def twaManifest = [
 
 android {
     compileSdkVersion 36
-    namespace "com.amruthachaya.voicecrm"
+    namespace "app.netlify.voice_crm_logger.twa"
     defaultConfig {
-        applicationId "com.amruthachaya.voicecrm"
+        applicationId "app.netlify.voice_crm_logger.twa"
         minSdkVersion 21
         targetSdkVersion 35
         versionCode 1
