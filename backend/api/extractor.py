@@ -75,22 +75,27 @@ def extract_name(text: str) -> str | None:
 
     return None
 
+
+KNOWN_CITIES = [
+    "Bangalore", "Kolkata", "Mumbai", "Delhi",
+    "Chennai", "Hyderabad", "Udupi", "Mysore"
+]
+
 def extract_address(text: str) -> dict:
     address = None
     city = None
     locality = None
 
-    address_match = re.search(r"stays at (.*?)[.,]", text, re.IGNORECASE)
+    # Address
+    address_match = re.search(r"stays at ([a-zA-Z0-9 ]+)", text, re.IGNORECASE)
     if address_match:
-        address = address_match.group(1)
+        address = address_match.group(1).strip()
 
-    city_match = re.search(r",\s*([A-Z][a-z]+)$", text)
-    if city_match:
-        city = city_match.group(1)
-
-    locality_match = re.search(r",\s*([A-Z][a-z ]+),", text)
-    if locality_match:
-        locality = locality_match.group(1)
+    # City (keyword based)
+    for c in KNOWN_CITIES:
+        if c.lower() in text.lower():
+            city = c
+            break
 
     return {
         "address": address,
